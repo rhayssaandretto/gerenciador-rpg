@@ -3,6 +3,9 @@ package com.example.rpg.entities;
 
 import com.example.rpg.enums.Classe;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -31,7 +34,9 @@ public class Character {
     @JoinColumn(name = "id_character")
     private List<MagicItem> itensMagicos = new ArrayList<>();
 
+    @Max(10)
     private Integer forca;
 
+    @Max(10)
     private Integer defesa;
 }

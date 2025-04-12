@@ -1,33 +1,37 @@
 package com.example.rpg.entities;
 
 
+import com.example.rpg.enums.Classe;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Character {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    private String nome;
 
-    @Column(nullable = false)
-    private String adventurerName;
+    private String nomeAventureiro;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Classe classe;
+
     private Integer level;
 
-    @Column(nullable = false)
-    private Integer strength;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_character")
+    private List<MagicItem> itensMagicos = new ArrayList<>();
 
-    @Column(nullable = false)
-    private Integer defense;
+    private Integer forca;
+
+    private Integer defesa;
 }

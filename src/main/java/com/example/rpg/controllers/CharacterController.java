@@ -59,7 +59,7 @@ public class CharacterController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{id}/itens-magicos/{idItem}")
+    @PostMapping("/{idCharacter}/itens-magicos/{idItem}")
     public ResponseEntity<Void> addMagicItem(@PathVariable Long idCharacter, @PathVariable Long idItem) {
         service.addItemToCharacter(idCharacter, idItem);
         return ResponseEntity.ok().build();

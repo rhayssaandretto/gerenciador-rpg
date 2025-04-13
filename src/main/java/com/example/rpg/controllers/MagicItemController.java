@@ -35,14 +35,12 @@ public class MagicItemController {
         return ResponseEntity.created(uri).build();
     }
 
-    // Listar todos os itens mágicos
     @GetMapping
     public ResponseEntity<List<MagicItem>> findAll() {
         List<MagicItem> items = service.findAll();
         return ResponseEntity.ok(items);
     }
 
-    // Buscar um item mágico pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<MagicItem> findById(@PathVariable Long id) {
         MagicItem item = service.findById(id);

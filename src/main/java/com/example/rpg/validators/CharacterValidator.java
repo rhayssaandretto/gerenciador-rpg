@@ -7,14 +7,12 @@ import com.example.rpg.exception.InvalidStatsException;
 
 public class CharacterValidator {
 
-    //só será chamado na criação do personagem
     public static void validateBaseStats(Character character) {
         if (character.getForca() + character.getDefesa() > 10) {
             throw new InvalidStatsException("A soma de força e defesa não pode exceder 10 pontos.");
         }
     }
 
-    //Adicionar Item Mágico ao Personagem;
     public static void validateAmuletUniqueness(Character character, MagicItem item) {
         if (item.getTipoItem() == TipoItem.AMULETO) {
             long countAmulet = character.getItensMagicos()

@@ -52,4 +52,4 @@ Sistema desenvolvido em **Java + Spring Boot** para gerenciar personagens de RPG
 | GET    | `/itens-magicos/{id} `                                 | Buscar item mágico por ID           |
 
 📘 A documentação completa das rotas está disponível na coleção do Postman:  
-👉  [Ver Collection]([https://www.postman.com/your-collection-link](https://www.postman.com/rhayssa/rpg/overview))  🪄✨
+👉  [Ver Collection](https://www.postman.com/rhayssa/rpg/overview)  🪄✨

@@ -1,6 +1,7 @@
 package com.example.rpg.entities;
 
 import com.example.rpg.enums.TipoItem;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,4 +23,9 @@ public class MagicItem {
     private Integer forca;
 
     private Integer defesa;
+
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    @JsonIgnoreProperties("itensMagicos")
+    private Character personagem;
 }

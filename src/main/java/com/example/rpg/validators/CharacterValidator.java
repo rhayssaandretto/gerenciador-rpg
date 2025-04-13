@@ -20,7 +20,7 @@ public class CharacterValidator {
                     .filter(i -> i.getTipoItem()
                             .equals(TipoItem.AMULETO)).count();
 
-            if (countAmulet > 1) {
+            if (countAmulet == 1) {
                 throw new InvalidStatsException("Já existe um item do tipo 'Amuleto'!");
             }
         }

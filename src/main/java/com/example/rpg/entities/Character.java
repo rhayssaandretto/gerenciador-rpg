@@ -2,6 +2,7 @@ package com.example.rpg.entities;
 
 
 import com.example.rpg.enums.Classe;
+import com.example.rpg.validators.OnCreate;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import lombok.*;
@@ -31,9 +32,9 @@ public class Character {
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MagicItem> itensMagicos = new ArrayList<>();
 
-    @Max(10)
+    @Max(value = 10, groups = OnCreate.class)
     private Integer forca;
 
-    @Max(10)
+    @Max(value = 10, groups = OnCreate.class)
     private Integer defesa;
 }

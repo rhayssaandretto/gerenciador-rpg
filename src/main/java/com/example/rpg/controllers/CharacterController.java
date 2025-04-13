@@ -5,10 +5,12 @@ import com.example.rpg.dtos.UpdateAdventureNameDTO;
 import com.example.rpg.entities.Character;
 import com.example.rpg.entities.MagicItem;
 import com.example.rpg.services.CharacterService;
+import com.example.rpg.validators.OnCreate;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -24,7 +26,7 @@ public class CharacterController {
     private final ModelMapper modelMapper;
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody @Valid CharacterDTO dto) {
+    public ResponseEntity<Void> create(@Validated(OnCreate.class) @RequestBody CharacterDTO dto) {
         CharacterDTO character = service.create(dto);
 
         URI uri = ServletUriComponentsBuilder

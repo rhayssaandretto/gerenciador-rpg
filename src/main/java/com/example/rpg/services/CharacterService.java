@@ -72,6 +72,8 @@ public class CharacterService {
             throw new InvalidStatsException(e.getMessage());
         }
 
+        item.setCharacter(character);
+
         character.getItensMagicos().add(item);
 
         this.updateStrengthAndDefensePoints(character, item);
